@@ -1,0 +1,1 @@
+C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\EmptyBins.csproj;x64

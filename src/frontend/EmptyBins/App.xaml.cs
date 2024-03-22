@@ -1,4 +1,7 @@
-﻿namespace EmptyBins
+﻿using EmptyBins.Pages.AuthPages;
+
+
+namespace EmptyBins
 {
     public partial class App : Application
     {
@@ -6,7 +9,8 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            // Set the start page to LoginScreen wrapped in a NavigationPage for navigation support
+            MainPage = new NavigationPage(new LoginScreen());
         }
     }
 }
