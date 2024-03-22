@@ -42,6 +42,18 @@ build_metadata.AdditionalFiles.ManifestResourceName = EmptyBins.Pages.AuthPages.
 build_metadata.AdditionalFiles.TargetPath = Pages\AuthPages\RegisterScreen.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\AuthPages\RegisterScreen.xaml
 
+[C:/Users/markp/Desktop/HACKATHON/Hackathon-2024/src/frontend/EmptyBins/Pages/AuthPages/SplashScreen.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EmptyBins.Pages.AuthPages.SplashScreen.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\AuthPages\SplashScreen.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\AuthPages\SplashScreen.xaml
+
+[C:/Users/markp/Desktop/HACKATHON/Hackathon-2024/src/frontend/EmptyBins/Pages/UserPages/ScanQRCodeScreen.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EmptyBins.Pages.UserPages.ScanQRCodeScreen.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\UserPages\ScanQRCodeScreen.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\UserPages\ScanQRCodeScreen.xaml
+
 [C:/Users/markp/Desktop/HACKATHON/Hackathon-2024/src/frontend/EmptyBins/Pages/UserPages/UserHomeScreen.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = EmptyBins.Pages.UserPages.UserHomeScreen.xaml

@@ -2,6 +2,7 @@ using Microsoft.Maui.Controls;
 using System;
 
 namespace EmptyBins.Pages.AuthPages;
+using EmptyBins.Pages.UserPages;
 
 public partial class RegisterScreen : ContentPage
 {
@@ -13,7 +14,8 @@ public partial class RegisterScreen : ContentPage
     private async void OnRegisterClicked(object sender, EventArgs e)
     {
         //logika
-        await DisplayAlert("Register", "Registration attempt...", "OK");
+        //await DisplayAlert("Register", "Registration attempt...", "OK");
+        await Navigation.PushAsync(new UserHomeScreen());
     }
 
     private async void OnLoginLabelClicked(object sender, EventArgs e)
@@ -31,7 +33,7 @@ public partial class RegisterScreen : ContentPage
 
     private void AdminButton_Clicked(object sender, EventArgs e)
     {
-        adminButton.BackgroundColor = Colors.IndianRed;
+        adminButton.BackgroundColor = Colors.DarkCyan;
         userButton.BackgroundColor = Colors.Transparent;
         // Itt állítsd be a felhasználó típusát "Admin"-re
     }

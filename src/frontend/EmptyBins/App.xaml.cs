@@ -1,4 +1,4 @@
-﻿using EmptyBins.Pages.AuthPages;
+﻿using EmptyBins.Pages;
 
 
 namespace EmptyBins
@@ -10,7 +10,8 @@ namespace EmptyBins
             InitializeComponent();
 
             // Set the start page to LoginScreen wrapped in a NavigationPage for navigation support
-            MainPage = new NavigationPage(new LoginScreen());
+            MainPage = new NavigationPage(new SplashScreen());
+
         }
     }
 }
