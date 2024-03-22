@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, ForeignKey
 from config.database import Base
 
 class User(Base):
@@ -7,5 +7,7 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     first_name = Column(String)
     last_name = Column(String)
-    password = Column(String)
     email = Column(String)
+    points = Column(Integer, default=0)
+    level_id = Column(Integer,  ForeignKey('levels.id'))
+    password = Column(String)
