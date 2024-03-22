@@ -57,35 +57,37 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Camera.MAUI" Version="1.5.1" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="QRCoder" Version="1.4.3" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Pages\AdminPages\" />
+	  <Folder Include="View\AdminPages\" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Pages\UserPages\UserHomeScreen.xaml.cs">
+	  <Compile Update="View\UserPages\UserHomeScreens\UserHomeScreen.xaml.cs">
 	    <DependentUpon>UserHomeScreen.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Pages\AuthPages\LoginScreen.xaml">
+	  <MauiXaml Update="View\AuthPages\LoginScreens\LoginScreen.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\AuthPages\RegisterScreen.xaml">
+	  <MauiXaml Update="View\AuthPages\RegisterScreens\RegisterScreen.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\AuthPages\SplashScreen.xaml">
+	  <MauiXaml Update="View\AuthPages\SplashScreen\SplashScreen.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\UserPages\ScanQRCodeScreen.xaml">
+	  <MauiXaml Update="View\UserPages\ScanQRCodeScreens\ScanQRCodeScreen.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\UserPages\UserHomeScreen.xaml">
+	  <MauiXaml Update="View\UserPages\UserHomeScreens\UserHomeScreen.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

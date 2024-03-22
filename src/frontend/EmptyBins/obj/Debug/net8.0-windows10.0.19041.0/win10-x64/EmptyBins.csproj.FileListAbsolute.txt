@@ -6,6 +6,7 @@ C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug
 C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\EmptyBins.pdb
 C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri
 C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml
+C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Camera.MAUI.dll
 C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Configuration.dll
 C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.DependencyInjection.dll
@@ -177,3 +178,6 @@ C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\obj\Debug
 C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\qualifiers.txt.intermediate
 C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
+C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Win32.SystemEvents.dll
+C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\QRCoder.dll
+C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\System.Drawing.Common.dll
