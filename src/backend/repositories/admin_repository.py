@@ -14,6 +14,14 @@ class AdminRepository:
         admin = self.db.query(Admin).filter(Admin.email == email).first()
         return admin
 
+    def get_user_id(self, email):
+        logger.info(f"{TAG} = get_user_id() -  called")
+        
+        user = self.db.query(Admin).filter(Admin.email == email).first()
+        if user:
+            return user.id
+        else:
+            return None
 
     def get_admins(self):
         logger.info(f"{TAG} = get_admins() -  called")

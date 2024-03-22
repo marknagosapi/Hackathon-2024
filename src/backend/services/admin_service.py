@@ -3,12 +3,15 @@ import os
 from typing import Annotated
 from fastapi import Depends, HTTPException, status
 from jose import JWTError, jwt
+import requests
 from schemas.token_schema import TokenData, TokenCreationalData
 from repositories.admin_repository import AdminRepository
 from schemas.admin_schema import  AdminSchema
+from schemas.bill_schema import BillSchema
 from models.admin import Admin
 from helper.user_utilities import get_password_hash,verify_password
 from helper.dependencies import oauth2_scheme, db
+from helper.utilities import send_post_request, generate_random_items
 from loguru import logger
 from datetime import datetime
 
@@ -23,6 +26,29 @@ class AdminService:
     def __init__(self):
         self.db = db
         self.admin_repository = AdminRepository(db)
+
+    def qr_scanned(self, user_id: int, current_admin:Admin):
+        # BillSchema példány létrehozása
+        admin_id = self.admin_repository.get_user_id(current_admin.email)
+        bill = BillSchema(
+            user_id=user_id,
+            admin_id=admin_id
+        )
+
+        items = generate_random_items(3)
+        bill.items = items
+
+        item_number = len(items)
+
+        total_price = sum(item["total_price"] for item in items)
+
+        bill.item_number = item_number
+        bill.total = total_price
+
+        bill_dict = bill.model_dump()  
+
+        print(bill_dict)
+        return bill_dict
 
 
     def authenticate_admin(self, email: str, password: str):

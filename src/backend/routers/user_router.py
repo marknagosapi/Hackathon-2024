@@ -1,10 +1,10 @@
 from typing import Annotated
 from fastapi import APIRouter, Depends, status
-from fastapi.security import OAuth2PasswordRequestForm
 from schemas.user_schema import User, UserSchema
-from schemas.token_schema import Token
 from services.user_service import UserService
+from schemas.bill_schema import BillSchema
 from loguru import logger
+
 
 logger.add("user_router.log",  level="DEBUG", format="{time:YYYY-MM-DD HH:mm:ss.SSS} - {level: <8} - {message}")
 
@@ -20,6 +20,16 @@ async def read_users_me(
     logger.info(f"Endpoint '/users/me/' called")
 
     return current_user
+
+
+@router.get("/users/id/")
+async def read_users_me(
+    current_user: Annotated[User, Depends(user_service.get_current_user)]
+):
+    logger.info(f"Endpoint '/users/id/' called")
+
+    user_id = user_service.get_user_id(current_user.email)
+    return {"id":user_id} 
 
 
 @router.get("/users/", status_code=status.HTTP_200_OK)
@@ -45,3 +55,9 @@ def delete_user_by_email(current_user: Annotated[User, Depends(user_service.get_
     user_service.delete_user(current_user)
 
     return {"message":"Account deleted"}
+
+@router.post('/users/add_bill', status_code=status.HTTP_201_CREATED)
+def add_bill(bill: BillSchema):
+    logger.info(f"Endpoint '/users/add_bill/' called")
+
+    return {bill.user_id}

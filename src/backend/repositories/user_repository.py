@@ -14,6 +14,15 @@ class UserRepository:
         user = self.db.query(User).filter(User.email == email).first()
         return user
 
+    def get_user_id(self, email):
+        logger.info(f"{TAG} = get_user_id() -  called")
+        
+        user = self.db.query(User).filter(User.email == email).first()
+        if user:
+            return user.id
+        else:
+            return None
+
 
     def get_users(self):
         logger.info(f"{TAG} = get_users() -  called")

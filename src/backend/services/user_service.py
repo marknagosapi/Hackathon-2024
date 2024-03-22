@@ -43,6 +43,16 @@ class UserService:
             return False
         return user
 
+    def get_user_id(self, email: str):
+        logger.info(f"{TAG} = get_user_id() -  called")
+
+        user_id = self.user_repository.get_user_id(email)
+
+        if not user_id:
+            return False
+        return user_id
+
+
 
     def get_users(self):
         logger.info(f"{TAG} = get_users() -  called")

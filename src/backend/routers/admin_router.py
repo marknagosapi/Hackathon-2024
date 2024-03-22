@@ -1,8 +1,6 @@
 from typing import Annotated
 from fastapi import APIRouter, Depends, status
-from fastapi.security import OAuth2PasswordRequestForm
 from schemas.admin_schema import Admin,AdminSchema 
-from schemas.token_schema import Token
 from services.admin_service import AdminService
 from loguru import logger
 
@@ -20,6 +18,15 @@ async def read_admins_me(
     logger.info(f"Endpoint '/admin/me/' called")
 
     return current_admin
+
+@router.get("/admin/scan_qr/")
+async def scan_qr_code(user_id : int,
+    current_admin: Annotated[Admin, Depends(admin_service.get_current_admin)]
+):
+    logger.info(f"Endpoint '/admin/scan_qr/' called")
+
+    bill = admin_service.qr_scanned(user_id, current_admin)
+    return bill
 
 
 @router.get("/admins/", status_code=status.HTTP_200_OK)
