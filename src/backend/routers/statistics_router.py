@@ -8,6 +8,9 @@ from schemas.bill_schema import BillSchema
 import pandas as pd
 from datetime import datetime, timedelta
 from loguru import logger
+from collections import defaultdict
+import numpy as np
+from sklearn.linear_model import LinearRegression
 
 
 logger.add("statistic_router.log",  level="DEBUG", format="{time:YYYY-MM-DD HH:mm:ss.SSS} - {level: <8} - {message}")
@@ -97,6 +100,33 @@ def get_user_expenses_by_month(user_id):
         return expenses_by_month
 
 
+def get_next_month_expenses(id:int):
+   
+    
+    expenses_month = get_expenses_by_month(id)
+
+    expenses_data = defaultdict(float)
+
+    for month, expense in expenses_month.items():
+        expenses_data[int(month)] = expense
+
+
+    if len(expenses_data) > 0:
+        months = np.array(list(expenses_data.keys())).reshape(-1, 1)
+        expenses = np.array(list(expenses_data.values()))
+
+        # Create and fit the linear regression model
+        model = LinearRegression()
+        model.fit(months, expenses)
+
+        # Predict expenses for the next month
+        next_month = max(expenses_data.keys()) + 1
+        predicted_expenses = model.predict([[next_month]])
+
+        return {"month":next_month,"expense":predicted_expenses[0]}
+    else:
+        return "There are no samples to fit the linear regression model."
+
 # FastAPI végpontok a statisztikák lekérdezésére
 @router.get('/total_spending')
 def total_spending():
@@ -134,3 +164,8 @@ def comparison_for_user(user_id: int):
 def get_expenses_by_month(user_id: int):
     expenses_by_month = get_user_expenses_by_month(user_id)
     return expenses_by_month
+
+@router.get("/next_month_expenses/{user_id}")
+def get_next_expenses(user_id: int):
+    expected_expenses = get_next_month_expenses(user_id)
+    return expected_expenses
