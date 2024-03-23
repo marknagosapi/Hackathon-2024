@@ -1,6 +1,7 @@
 from routers.router import router 
 from routers.user_router import router as user_router
 from routers.admin_router import router as admin_router
+from routers.level_router import router as level_router
 from config.database import engine
 from models import  user, admin, bill, item, level
 import uvicorn
@@ -30,6 +31,7 @@ level.Base.metadata.create_all(bind=engine)
 app.include_router(router)
 app.include_router(user_router, prefix="", tags=["users"])
 app.include_router(admin_router, prefix="", tags=["admins"])
+app.include_router(level_router, prefix="", tags=["levels"])
 
 
 def main():

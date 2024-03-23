@@ -5,5 +5,7 @@ class Level(Base):
     __tablename__ = 'levels'
 
     id = Column(Integer, primary_key=True)
-    min_points = Column(Integer)
     name = Column(String)
+    min_points = Column(Integer)
+    max_points = Column(Integer)
+    
