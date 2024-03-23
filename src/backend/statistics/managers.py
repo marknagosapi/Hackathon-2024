@@ -1,8 +1,9 @@
 # Make Statistics 
 from collections import defaultdict
 
-class BillStatistics:
+class StatisticsManager:
     def __init__(self, bills_data):
+        self.bills_data = bills_data
         self.statistics = {
             "total_spending": 0,
             "total_items": 0,
@@ -13,21 +14,20 @@ class BillStatistics:
         }
 
     def calculateStatistics(self):
-        for bill in bills_data:
-            self.statistics["total_spending"] += bill["total"]
-            for item in bill["items"]:
-                self.statistics["total_items"] += item["quantity"]
-                self.statistics["user_spending"][bill["user_id"]] += item["total_price"]
-                self.statistics["item_frequency"][item["name"]] += item["quantity"]
-                if self.statistics["user_most_liked_item"][bill["user_id"]] == '' or self.statistics["item_frequency"][item["name"]] > self.statistics["item_frequency"][self.statistics["user_most_liked_item"][bill["user_id"]]]:
-                    self.statistics["user_most_liked_item"][bill["user_id"]] = item["name"]
+      for bill in bills_data:
+        self.statistics["total_spending"] += bill["total"]
+        for item in bill["items"]:
+            self.statistics["total_items"] += item["quantity"]
+            self.statistics["user_spending"][bill["user_id"]] += item["total_price"]
+            self.statistics["item_frequency"][item["id"]] += item["quantity"]
+            if self.statistics["user_most_liked_item"][bill["user_id"]] == '' or self.statistics["item_frequency"][item["name"]] > self.statistics["item_frequency"][self.statistics["user_most_liked_item"][bill["user_id"]]]:
+                self.statistics["user_most_liked_item"][bill["user_id"]] = item["name"]
 
-        # Calculate average spending per user
-        for user_id, spending in self.statistics["user_spending"].items():
+      for user_id, spending in self.statistics["user_spending"].items():
             self.statistics["user_spending"][user_id] = spending / self.statistics["total_bills"]
 
     def get_total_spending(self):
-        return self.statistics['total_spending']
+        return round(self.statistics['total_spending'],2)
 
     def get_total_items_purchased(self):
         return self.statistics['total_items']
@@ -35,16 +35,22 @@ class BillStatistics:
     def get_total_bills(self):
         return self.statistics['total_bills']
     
-
-    def get_user_statistics(self):
-        user_stats = []
+      # Returns The List Of User Id's with it's spending
+    def get_all_users_overall_spending(self):
+        user_spending_dict = {}
         for user_id, spending in self.statistics["user_spending"].items():
-            user_stats.append(f"Average spending for User {user_id}: €{spending:.2f}")
-        return "\n".join(user_stats)
+            user_spending_dict[user_id] = round(spending, 2)
+        return user_spending_dict
 
+        # Returns The Must Buyed Item
     def get_item_statistics(self):
         most_frequent_item = max(self.statistics["item_frequency"], key=self.statistics["item_frequency"].get)
-        return f"Most frequently purchased item: {most_frequent_item} ({self.statistics['item_frequency'][most_frequent_item]} times)"
+        return most_frequent_item
+
+        # Returns The User's ID
+    def get_user_with_the_highest_spending(self):
+        user_with_highest_spending = max(self.statistics["user_spending"], key=self.statistics["user_spending"].get)
+        return user_with_highest_spending
 
     def get_comparison_between_users(self):
         user_with_highest_spending = max(self.statistics["user_spending"], key=self.statistics["user_spending"].get)
@@ -54,16 +60,19 @@ class BillStatistics:
         return "\n".join(comparison)
 
     def get_comparison_for_user(self, user_id_to_compare):
+        # Returns a percentage (eg. This user spent more then 80% of the user's)
         user_spending_to_compare = self.statistics["user_spending"][user_id_to_compare]
+        if user_spending_to_compare == 0:
+          return 0
         users_spent_less = sum(1 for spending in self.statistics["user_spending"].values() if spending < user_spending_to_compare)
         total_users = len(self.statistics["user_spending"])
         percentage_spent_more = abs((users_spent_less / total_users)) * 100
         if percentage_spent_more == 0:
             percentage_spent_more = 100
-        return f"Comparison for User {user_id_to_compare}:\nSpending: €{user_spending_to_compare:.2f}\nPercentage of people spent more than user {user_id_to_compare}: {percentage_spent_more:.2f}%"
+        return round(percentage_spent_more,2)
 
-# Example usage:
-bills_data = [...]  # Your bills data here
-billStatManager = BillStatistics(bills_data)
+
+billStatManager = StatisticsManager(bills_data)
 billStatManager.calculateStatistics()
-billStatManager.get_basic_statistics()
+billStatManager.get_all_users_overall_spending()
+
