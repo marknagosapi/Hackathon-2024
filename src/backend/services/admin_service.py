@@ -6,8 +6,11 @@ from jose import JWTError, jwt
 import requests
 from schemas.token_schema import TokenData, TokenCreationalData
 from repositories.admin_repository import AdminRepository
+from repositories.bill_repository import BillRepository
+from repositories.item_repository import ItemRepository
 from schemas.admin_schema import  AdminSchema
-from schemas.bill_schema import BillSchema
+from schemas.bill_schema import BillSchema, BillInDb
+from schemas.item_schema import  ItemInDb
 from models.admin import Admin
 from helper.user_utilities import get_password_hash,verify_password
 from helper.dependencies import oauth2_scheme, db
@@ -27,15 +30,23 @@ class AdminService:
         self.db = db
         self.admin_repository = AdminRepository(db)
 
+
+
     def qr_scanned(self, user_id: int, current_admin:Admin):
-        # BillSchema példány létrehozása
+        logger.info(f"{TAG} = qr_scanned() -  called")
+
+        self.bill_repository = BillRepository(db)
+        self.item_repository = ItemRepository(db)
+
+
         admin_id = self.admin_repository.get_user_id(current_admin.email)
+
         bill = BillSchema(
             user_id=user_id,
             admin_id=admin_id
         )
 
-        items = generate_random_items(3)
+        items = generate_random_items(12)
         bill.items = items
 
         item_number = len(items)
@@ -47,7 +58,15 @@ class AdminService:
 
         bill_dict = bill.model_dump()  
 
-        print(bill_dict)
+        db_bill = self.bill_repository.create_bill(BillInDb(**bill.dict()))
+        # [setattr(ItemInDb(**item), 'bill_id', db_bill.id) for item in items]
+
+        # self.item_repository.create_items(items)
+        for item in items:
+            db_item = ItemInDb(**item)
+            db_item.bill_id = db_bill.id
+            self.item_repository.create_item(db_item)
+
         return bill_dict
 
 

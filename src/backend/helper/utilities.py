@@ -1,10 +1,7 @@
 import os
 import random
-import re
 from typing import List
 import requests
-import sys
-import dotenv
 from schemas.bill_schema import BillSchema
 from schemas.item_schema import ItemSchema
 
@@ -27,18 +24,15 @@ def generate_random_items(nr)->List[ItemSchema]:
     items = []
     for _ in range(nr):
         quantity=random.randint(1, 10),
-        unique_price = random.uniform(1.0, 100.0),
+        unique_price = random.uniform(1.0, 10.0),
         total_price = quantity[0] * unique_price[0] 
-        print(quantity[0])
-        print(unique_price[0])
-
+        
         item = ItemSchema(
             name=f"Item {_ + 1}",
             quantity=quantity[0],
             unique_price=unique_price[0],
             total_price = total_price
         )
-
         items.append(item.model_dump())
-        
+
     return items

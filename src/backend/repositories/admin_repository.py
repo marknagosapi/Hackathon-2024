@@ -1,6 +1,9 @@
 from models.admin import Admin
+from models.item import Item
+from models.bill import Bill
 from sqlalchemy.orm import Session
 from loguru import logger
+
 
 TAG = "AdminRepository"
 
