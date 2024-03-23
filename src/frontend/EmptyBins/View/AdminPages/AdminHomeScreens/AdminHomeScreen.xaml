@@ -9,4 +9,11 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
     </VerticalStackLayout>
+    <Button Text="Log Out" 
+            Clicked="OnLogOutClicked" 
+            HorizontalOptions="End" 
+            VerticalOptions="End"  
+            BackgroundColor="Orange"
+            HeightRequest="40"
+            WidthRequest="100" />
 </ContentPage>

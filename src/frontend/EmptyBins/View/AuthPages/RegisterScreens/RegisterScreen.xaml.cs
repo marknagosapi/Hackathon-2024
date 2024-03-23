@@ -9,6 +9,7 @@ using EmptyBins.View.AdminPages.AdminHomeScreens;
 using EmptyBins.Models;
 
 
+
 namespace EmptyBins.View.AuthPages;
 
 public partial class RegisterScreen : ContentPage
@@ -24,7 +25,7 @@ public partial class RegisterScreen : ContentPage
     //regisztracios logika
     private async void OnRegisterClicked(object sender, EventArgs e)
     {
-        var userData = new
+        object data = _selectedUserType == "user" ? new
         {
             first_name = firstnameEntry.Text,
             last_name = lastnameEntry.Text,
@@ -32,40 +33,34 @@ public partial class RegisterScreen : ContentPage
             password = passwordEntry.Text,
             points = 0,
             level_id = 0,
-
-        };
-
-        var adminData = new
+        } : new
         {
             first_name = firstnameEntry.Text,
             last_name = lastnameEntry.Text,
             email = emailEntry.Text,
-            market_name = marketNameEntry.Text,
+            market_name = marketNameEntry.Text, // Csak az adminisztrátorokhoz
             password = passwordEntry.Text,
         };
 
 
-
-        var content = new StringContent(JsonConvert.SerializeObject(userData), Encoding.UTF8, "application/json");
+        var url = _selectedUserType == "user" ? "http://localhost:8000/users/add" : "http://localhost:8000/admins/add";
+        var content = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
 
         try
         {
             //http url
-            var response = await _httpClient.PostAsync("http://localhost:8000/users/add", content);
+            var response = await _httpClient.PostAsync(url, content);
 
             if (response.IsSuccessStatusCode)
-            {
-                var responseContent = await response.Content.ReadAsStringAsync();
-                var registrationResponse = JsonConvert.DeserializeObject<RegistrationResponse>(responseContent);
-
+            { 
                 await DisplayAlert("Success", "Registration successful.", "OK");
 
                 // UserType alapján döntés
-                if (registrationResponse.UserType == "user")
+                if (_selectedUserType == "user")
                 {
                     await Navigation.PushAsync(new UserHomeScreen());
                 }
-                else if (registrationResponse.UserType == "admin")
+                else if (_selectedUserType == "admin")
                 {
                     await Navigation.PushAsync(new AdminHomeScreen());
                 }

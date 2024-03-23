@@ -1,8 +1,9 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
+using EmptyBins.View.AuthPages;
 namespace EmptyBins.View.UserPages;
+
 
 public partial class UserHomeScreen : ContentPage, INotifyPropertyChanged
 {
@@ -63,6 +64,12 @@ public partial class UserHomeScreen : ContentPage, INotifyPropertyChanged
     {
         // Navigálás a ScanQRCodeScreen-re
         await Navigation.PushAsync(new ScanQRCodeScreen());
+    }
+
+    private async void OnLogOutClicked(object sender, EventArgs e)
+    {
+        // Navigálás a ScanQRCodeScreen-re
+        await Navigation.PushAsync(new LoginScreen());
     }
 
     public class Bill

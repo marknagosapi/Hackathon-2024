@@ -5,19 +5,32 @@
     <ScrollView>
         <VerticalStackLayout Spacing="25" Padding="30">
             <!-- User Profile Section -->
-            <HorizontalStackLayout Spacing="10">
-                <VerticalStackLayout Spacing="0">
-                    <Label Text="{Binding Username}" FontSize="Large" VerticalOptions="End" HorizontalOptions="Start"/>
-                    <Label Text="{Binding Score, StringFormat='Score: {0}'}" FontSize="Medium" VerticalOptions="Start" HorizontalOptions="Start"/>
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="FillAndExpand">
+                <VerticalStackLayout Spacing="0" HorizontalOptions="Start">
+                    <Label Text="{Binding Username}" FontSize="Large" VerticalOptions="End"/>
+                    <Label Text="{Binding Score, StringFormat='Score: {0}'}" FontSize="Medium" VerticalOptions="Start"/>
                     <Frame Padding="0" HasShadow="False" CornerRadius="10" HorizontalOptions="FillAndExpand">
                         <ProgressBar Progress="{Binding Score, Converter={StaticResource ScoreToProgressConverter}}"
-                                     ProgressColor="Purple"
-                                     VerticalOptions="Center"
-                                     HorizontalOptions="FillAndExpand"
-                                      />
+                         ProgressColor="Purple"
+                         VerticalOptions="Center"
+                         HorizontalOptions="FillAndExpand" />
                     </Frame>
                 </VerticalStackLayout>
+
+               
+                <BoxView HorizontalOptions="FillAndExpand" />
+
+                
+                <Button Text="Log Out" 
+                    Clicked="OnLogOutClicked" 
+                    HorizontalOptions="End" 
+                    VerticalOptions="End"  
+                    BackgroundColor="Orange"
+                    HeightRequest="40"
+                    WidthRequest="100" />
+                    
             </HorizontalStackLayout>
+
 
             <!-- Scan QR Code Button -->
             <Button Text="Scan QR code"
