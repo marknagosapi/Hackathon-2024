@@ -1,5 +1,7 @@
 ﻿using Camera.MAUI;
+using ZXing;
 using Microsoft.Extensions.Logging;
+using ZXing.Net.Maui.Controls;
 
 namespace EmptyBins
 {
@@ -11,11 +13,13 @@ namespace EmptyBins
             builder
                 .UseMauiApp<App>()
                 .UseMauiCameraView()
+                .UseBarcodeReader()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+                
 
 #if DEBUG
     		builder.Logging.AddDebug();

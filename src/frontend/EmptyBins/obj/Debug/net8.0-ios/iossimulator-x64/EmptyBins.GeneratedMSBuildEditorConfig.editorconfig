@@ -52,6 +52,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = EmptyBins.View.AdminPages.
 build_metadata.AdditionalFiles.TargetPath = View\AdminPages\AdminHomeScreens\AdminHomeScreen.xaml
 build_metadata.AdditionalFiles.RelativePath = View\AdminPages\AdminHomeScreens\AdminHomeScreen.xaml
 
+[C:/Users/markp/Desktop/HACKATHON/Hackathon-2024/src/frontend/EmptyBins/View/AdminPages/CameraScreens/CameraScreens.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EmptyBins.View.AdminPages.CameraScreens.CameraScreens.xaml
+build_metadata.AdditionalFiles.TargetPath = View\AdminPages\CameraScreens\CameraScreens.xaml
+build_metadata.AdditionalFiles.RelativePath = View\AdminPages\CameraScreens\CameraScreens.xaml
+
 [C:/Users/markp/Desktop/HACKATHON/Hackathon-2024/src/frontend/EmptyBins/View/AuthPages/LoginScreens/LoginScreen.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = EmptyBins.View.AuthPages.LoginScreens.LoginScreen.xaml
