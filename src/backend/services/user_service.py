@@ -161,7 +161,7 @@ class UserService:
         access_token = self.create_access_token_for_user(user.email)
         logger.info(f"User logged in with email: {user.email} token: {access_token}")
         
-        return {"access_token": access_token, "token_type": "bearer"}
+        return {"access_token": access_token, "token_type": "bearer", "user_type":type(user).__name__ }
 
 
     def register_user(self, user: UserSchema):

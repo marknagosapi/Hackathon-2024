@@ -162,7 +162,7 @@ class AdminService:
         access_token = self.create_access_token_for_admin(admin.email)
         logger.info(f"Admin logged in with email: {admin.email} token: {access_token}")
         
-        return {"access_token": access_token, "token_type": "bearer"}
+        return {"access_token": access_token, "token_type": "bearer", "user_type":type(admin).__name__}
 
 
     def register_admin(self, admin: AdminSchema):
