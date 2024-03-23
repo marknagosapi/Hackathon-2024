@@ -9,6 +9,7 @@ from repositories.user_repository import UserRepository
 from repositories.bill_repository import BillRepository
 from repositories.item_repository import ItemRepository
 from repositories.level_repository import LevelRepository
+from repositories.admin_repository import AdminRepository
 from schemas.user_schema import  UserSchema
 from schemas.bill_schema import BillSchema,BillInDb
 from schemas.item_schema import ItemSchema
@@ -32,6 +33,7 @@ class UserService:
         self.bill_repository = BillRepository(db)
         self.item_repository = ItemRepository(db)
         self.level_repository = LevelRepository(db)
+        self.adminRepository = AdminRepository(db)
 
 
 
@@ -66,29 +68,47 @@ class UserService:
         return user_id
 
 
-    def get_user_bills(self,user:User):
-        logger.info(f"{TAG} = get_user_bills() -  called")
-        db_bill = self.bill_repository.find_bills(user.id)
+    def get_user_bills(self, user: User):
+        logger.info(f"{TAG} = get_user_bills() - called")
+        
+        db_bills = self.bill_repository.find_bills(user.id)
+        user_bills = []
 
-        return db_bill
+        for db_bill in db_bills:
+            market_name = self.adminRepository.get_market_name(db_bill.admin_id)
+
+            bill_dict = {
+                "user_id": db_bill.user_id,
+                "admin_id": db_bill.admin_id,
+                "market_name": market_name,
+                "date": db_bill.date,
+                "item_number": db_bill.item_number,
+                "total": db_bill.total,
+            }
+
+            user_bills.append(bill_dict)
+
+        return user_bills
 
     def create_bill_dict(self, db_bill):
         
-        if not db_bill:
+        if not db_bill:  
             return None
 
         db_items = self.item_repository.find_items_by_bill_id(db_bill.id)
+        market_name = self.adminRepository.get_market_name(db_bill.admin_id)
 
         bill_dict = {
             "user_id": db_bill.user_id,
             "admin_id": db_bill.admin_id,
+            "market_name": market_name,
             "date": db_bill.date,
             "item_number": db_bill.item_number,
             "total": db_bill.total,
             "items": [ItemSchema(name=item.name, quantity=item.quantity, unique_price=item.unique_price, total_price=item.total_price) for item in db_items]
         }
 
-        return bill_dict
+        return bill_dict 
 
 
 

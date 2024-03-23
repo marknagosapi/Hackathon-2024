@@ -26,6 +26,7 @@ class AdminRepository:
         else:
             return None
 
+
     def get_admins(self):
         logger.info(f"{TAG} = get_admins() -  called")
         admins = self.db.query(Admin).all()
@@ -47,6 +48,20 @@ class AdminRepository:
         self.db.delete(admin)
 
         self.db.commit
+
+    def get_market_name(self, admin_id:id):
+        logger.info(f"{TAG} = delete_admin() -  called")
+
+        # Keresés az adatbázisban az admin_id alapján
+        admin = self.db.query(Admin).filter(Admin.id == admin_id).first()
+
+        # Ha találtunk admin-t az adott admin_id-vel
+        if admin:
+            # Visszaadjuk az admin nevét
+            return admin.market_name
+        else:
+            # Ha nem találtunk, akkor None-t adunk vissza
+            return None
 
 
     # def get_refresh_token(self, refresh_token:str):
