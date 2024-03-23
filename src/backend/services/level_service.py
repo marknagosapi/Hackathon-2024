@@ -1,5 +1,5 @@
 from typing import List, Optional
-from repositories.level_repopsitory import LevelRepository
+from repositories.level_repository import LevelRepository
 from models.level import Level
 from loguru import logger
 from helper.dependencies import db
@@ -29,6 +29,11 @@ class LevelService:
         logger.info(f"{TAG} - get_level_by_id() called")
 
         return self.level_repository.get_level_by_id(level_id)
+    
+    def get_level_by_points(self, points: int) -> Optional[Level]:
+        logger.info(f"{TAG} - get_level_by_points() called")
+
+        return self.level_repository.get_level_by_points(points)
     
 
     def get_all_levels(self) -> List[Level]:

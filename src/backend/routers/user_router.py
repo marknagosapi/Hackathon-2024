@@ -22,11 +22,12 @@ async def read_users_me(
     return current_user
 
 @router.get("/users/me/bills/")
-async def get_bills(current_user: Annotated[User, Depends(user_service.get_current_user)]
+async def get_bills(current_user: Annotated[User, Depends(user_service.get_current_user)], 
+                    bill_id:int
 ):
     logger.info(f"Endpoint '/users/me/bills/' called")
     
-    bills = user_service.get_user_bills(current_user.email)
+    bills = user_service.get_user_bills(current_user, bill_id)
     
     return bills
 

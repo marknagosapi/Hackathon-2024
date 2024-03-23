@@ -38,6 +38,20 @@ class UserRepository:
 
         return user
 
+    def add_points_for_user(self, points:int, user:User):
+        logger.info(f"{TAG} = add_points() -  called")
+
+        user.points += points
+
+        self.db.commit()
+        return user.points
+
+    def update_level(self, level_id:int, user:User):
+        logger.info(f"{TAG} = update_level() -  called")
+        
+        user.level_id = level_id 
+        self.db.commit()
+
 
     def delete_user(self, user: User):
         logger.info(f"{TAG} = delete_user() -  called")
