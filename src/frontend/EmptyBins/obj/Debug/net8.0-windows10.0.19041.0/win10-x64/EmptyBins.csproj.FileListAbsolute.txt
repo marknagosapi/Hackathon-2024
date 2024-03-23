@@ -43,6 +43,9 @@ C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug
 C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Newtonsoft.Json.dll
 C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\QRCoder.dll
 C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\System.Drawing.Common.dll
+C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\zxing.dll
+C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\ZXing.Net.MAUI.dll
+C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\ZXing.Net.MAUI.Controls.dll
 C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\ar\Microsoft.Maui.Controls.resources.dll
 C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\ca\Microsoft.Maui.Controls.resources.dll
 C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\cs\Microsoft.Maui.Controls.resources.dll
