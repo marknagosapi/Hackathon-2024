@@ -7,5 +7,5 @@ class Level(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String)
     min_points = Column(Integer)
-    max_points = Column(Integer)
+    max_points = Column(Integer, nullable=True) 
     

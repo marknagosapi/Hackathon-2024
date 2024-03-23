@@ -20,6 +20,12 @@ class LevelRepository:
 
         return self.db.query(Level).filter(Level.name == name).first()
     
+    def get_level_by_points(self, points:int):
+        logger.info(f"{TAG} - get_level_by_points() called")
+
+        return self.db.query(Level.id).filter(Level.min_points <= points, (Level.max_points == None) | (Level.max_points >= points)).first()
+
+
 
     def get_level_by_id(self, level_id: int):
         logger.info(f"{TAG} - get_level_by_id() called")

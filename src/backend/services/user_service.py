@@ -7,6 +7,7 @@ from schemas.token_schema import TokenData, TokenCreationalData
 from repositories.user_repository import UserRepository
 from repositories.bill_repository import BillRepository
 from repositories.item_repository import ItemRepository
+from repositories.level_repository import LevelRepository
 from schemas.user_schema import  UserSchema
 from schemas.bill_schema import BillSchema
 from schemas.item_schema import ItemSchema
@@ -29,7 +30,7 @@ class UserService:
         self.user_repository = UserRepository(db)
         self.bill_repository = BillRepository(db)
         self.item_repository = ItemRepository(db)
-
+        self.level_repository = LevelRepository(db)
 
 
 
@@ -60,11 +61,11 @@ class UserService:
             return False
         return user_id
 
-    def get_user_bills(self,email:str):
+    def get_user_bills(self,user:User, bill_id:int):
         logger.info(f"{TAG} = get_user_bills() -  called")
-        user_id = self.get_user_id(email)
+        user_id = self.get_user_id(user.email)
 
-        db_bill = db_bill = self.bill_repository.find_bill_by_id(20)
+        db_bill = db_bill = self.bill_repository.find_bill_by_id(bill_id)
         
         db_items = self.item_repository.find_items_by_bill_id(db_bill.id)
 
@@ -76,7 +77,9 @@ class UserService:
             total=db_bill.total,
             items=[ItemSchema(name=item.name, quantity=item.quantity, unique_price=item.unique_price, total_price=item.total_price) for item in db_items]
         )
-
+        user_points = self.user_repository.add_points_for_user(int(bill_dict.total), user)
+        level_id = self.level_repository.get_level_by_points(user_points)
+        self.user_repository.update_level(level_id[0], user)
         return bill_dict
 
 
