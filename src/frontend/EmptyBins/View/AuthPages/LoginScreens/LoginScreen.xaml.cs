@@ -41,7 +41,7 @@ public partial class LoginScreen : ContentPage
                 var tokenResponse = JsonConvert.DeserializeObject<TokenResponse>(responseContent);
 
                 // Az access token elmentése a SecureStorage-ba
-                await SecureStorage.SetAsync("accessToken", tokenResponse.AccessToken);
+                await SecureStorage.SetAsync("AccessToken", tokenResponse.AccessToken);
 
                 // Navigáció a felhasználó típusa alapján
                 if (tokenResponse.UserType == "User")

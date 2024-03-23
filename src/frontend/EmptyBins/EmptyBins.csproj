@@ -84,6 +84,9 @@
 	  <MauiXaml Update="View\AuthPages\SplashScreen\SplashScreen.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\UserPages\BillDetailScreen\BillDetailScreen.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\UserPages\ScanQRCodeScreens\ScanQRCodeScreen.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

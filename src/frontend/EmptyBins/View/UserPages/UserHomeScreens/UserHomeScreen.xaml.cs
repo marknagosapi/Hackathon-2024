@@ -1,17 +1,20 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using EmptyBins.Models;
+using EmptyBins.Services;
 using EmptyBins.View.AuthPages;
 namespace EmptyBins.View.UserPages;
 
 
 public partial class UserHomeScreen : ContentPage, INotifyPropertyChanged
-{
 
-    private string _username = "DummyUser";
+{
+    private UserDataService _userDataService;
+    private string _username = "";
     private int _score = 15125;
 
-    public ObservableCollection<Bill> Bills { get; set; }
+    public ObservableCollection<BillModel> Bills { get; set; }
 
     public string Username
     {
@@ -27,21 +30,87 @@ public partial class UserHomeScreen : ContentPage, INotifyPropertyChanged
 
     public UserHomeScreen()
     {
+        _userDataService = new UserDataService();
         InitializeComponent();
-        Bills = new ObservableCollection<Bill>()
-            {
-                new Bill { MarketName = "Market A", TotalSum = "100.00", DateTime = "2023-03-22" },
-                new Bill { MarketName = "Market B", TotalSum = "1244.00", DateTime = "2023-03-2" },
-                new Bill { MarketName = "Market C", TotalSum = "1230.00", DateTime = "2023-02-12" },
-                new Bill { MarketName = "Market D", TotalSum = "10.00", DateTime = "2023-01-11" },
-                new Bill { MarketName = "Market E", TotalSum = "130.00", DateTime = "2023-01-4" },
-                // Add more dummy data here
 
-            };
+        Bills = new ObservableCollection<BillModel>();
+
+        // Set the BindingContext to this object
         this.BindingContext = this;
+
     }
 
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+
+        await FetchUserDataAsync();
+        await FetchAndPopulateBills();
+    }
+
+
     public event PropertyChangedEventHandler PropertyChanged;
+
+    private async void OnIconTapped(object sender, EventArgs e)
+    {
+        // Navigate to your desired page when the icon is tapped
+         await Navigation.PushAsync(new BillDetailScreen(1));
+    }
+
+    private async void OnStackLayoutTapped(object sender, EventArgs e)
+    {
+        // Navigate to your desired page when the stack layout is tapped
+        await Navigation.PushAsync(new BillDetailScreen(1));
+
+    }
+
+    private async void OnTotalLabelTapped(object sender, EventArgs e)
+    {
+        // Navigate to your desired page when the total label is tapped
+        await Navigation.PushAsync(new BillDetailScreen(1));
+
+    }
+
+    private async Task FetchAndPopulateBills()
+    {
+        // Call the GetUserBillsAsync method to fetch the bills
+        var userBills = await _userDataService.GetUserBillsAsync();
+
+        if (userBills != null)
+        {
+      
+            Bills.Clear();
+
+            foreach (var bill in userBills)
+            {
+                Bills.Add(bill);
+            }
+        }
+    }
+
+    public async Task FetchUserDataAsync()
+    {
+        try
+        {
+            var userData = await _userDataService.GetUserDataAsync();
+
+            if (userData != null)
+            {
+          
+                Username = userData.last_name + " " + userData.first_name;
+                Score = userData.points;
+
+            }
+            else
+            {
+                Username = "b";
+     
+            }
+        }
+        catch (Exception ex)
+        {
+        }
+    }
 
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
     {
@@ -72,11 +141,5 @@ public partial class UserHomeScreen : ContentPage, INotifyPropertyChanged
         await Navigation.PushAsync(new LoginScreen());
     }
 
-    public class Bill
-    {
-        public string MarketName { get; set; }
-        public string TotalSum { get; set; }
-        public string DateTime { get; set; }
-    }
 }
 
