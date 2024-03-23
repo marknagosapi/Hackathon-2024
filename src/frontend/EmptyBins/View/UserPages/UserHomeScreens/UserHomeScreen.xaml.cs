@@ -54,7 +54,7 @@ public partial class UserHomeScreen : ContentPage, INotifyPropertyChanged
     private async void OnIconTapped(object sender, EventArgs e)
     {
         // Navigate to your desired page when the icon is tapped
-         await Navigation.PushAsync(new BillDetailScreen(1));
+         await Navigation.PushAsync(new BillDetailScreen(sender.));
     }
 
     private async void OnStackLayoutTapped(object sender, EventArgs e)
