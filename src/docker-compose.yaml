@@ -1,0 +1,32 @@
+version: '3'
+name: hackathon_backend
+services:
+  backend:
+    build:
+      context: ./backend/
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    networks:
+      - hackathon
+    env_file:
+      - ./.env
+
+
+  postgres:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    networks:
+      - hackathon
+    env_file:
+      - ./.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+networks:
+  hackathon:
+
+volumes:
+  postgres_data:
