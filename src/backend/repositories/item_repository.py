@@ -10,6 +10,17 @@ class ItemRepository:
     def __init__(self, db: Session):
         self.db = db
 
+    def find_items(self):
+        logger.info(f"{TAG} = find_items() -  called")
+        items = self.db.query(Item).all()
+        return items
+
+    def find_items_by_bill_id(self, bill_id:int):
+        logger.info(f"{TAG} = find_item_by_id() -  called")
+        items = self.db.query(Item).filter(Item.bill_id == bill_id).all()
+        return items
+
+
 
     def create_item(self, item: Item):
         logger.info(f"{TAG} = create_item() -  called")

@@ -3,7 +3,6 @@ import os
 from typing import Annotated
 from fastapi import Depends, HTTPException, status
 from jose import JWTError, jwt
-import requests
 from schemas.token_schema import TokenData, TokenCreationalData
 from repositories.admin_repository import AdminRepository
 from repositories.bill_repository import BillRepository
@@ -56,9 +55,7 @@ class AdminService:
         bill.item_number = item_number
         bill.total = total_price
 
-        bill_dict = bill.model_dump()  
-
-        db_bill = self.bill_repository.create_bill(BillInDb(**bill.dict()))
+        db_bill = self.bill_repository.create_bill(BillInDb(**bill.model_dump()))
         # [setattr(ItemInDb(**item), 'bill_id', db_bill.id) for item in items]
 
         # self.item_repository.create_items(items)
@@ -67,7 +64,7 @@ class AdminService:
             db_item.bill_id = db_bill.id
             self.item_repository.create_item(db_item)
 
-        return bill_dict
+        return db_bill
 
 
     def authenticate_admin(self, email: str, password: str):

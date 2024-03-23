@@ -5,7 +5,11 @@ from fastapi import Depends, HTTPException, status
 from jose import JWTError, jwt
 from schemas.token_schema import TokenData, TokenCreationalData
 from repositories.user_repository import UserRepository
+from repositories.bill_repository import BillRepository
+from repositories.item_repository import ItemRepository
 from schemas.user_schema import  UserSchema
+from schemas.bill_schema import BillSchema
+from schemas.item_schema import ItemSchema
 from models.user import User
 from helper.user_utilities import get_password_hash,verify_password
 from helper.dependencies import oauth2_scheme, db
@@ -23,6 +27,10 @@ class UserService:
     def __init__(self):
         self.db = db
         self.user_repository = UserRepository(db)
+        self.bill_repository = BillRepository(db)
+        self.item_repository = ItemRepository(db)
+
+
 
 
     def authenticate_user(self, email: str, password: str):
@@ -51,6 +59,26 @@ class UserService:
         if not user_id:
             return False
         return user_id
+
+    def get_user_bills(self,email:str):
+        logger.info(f"{TAG} = get_user_bills() -  called")
+        user_id = self.get_user_id(email)
+
+        db_bill = db_bill = self.bill_repository.find_bill_by_id(20)
+        
+        db_items = self.item_repository.find_items_by_bill_id(db_bill.id)
+
+        bill_dict = BillSchema(
+            user_id=db_bill.user_id,
+            admin_id=db_bill.admin_id,
+            date=db_bill.date,
+            item_number=db_bill.item_number,
+            total=db_bill.total,
+            items=[ItemSchema(name=item.name, quantity=item.quantity, unique_price=item.unique_price, total_price=item.total_price) for item in db_items]
+        )
+
+        return bill_dict
+
 
 
 
