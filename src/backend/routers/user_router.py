@@ -49,16 +49,12 @@ async def get_bill_by_id(current_user: Annotated[User, Depends(user_service.get_
     
     return bill
 
-
-# @router.get("/users/me/bill_current/")
-# async def get_bills(current_user: Annotated[User, Depends(user_service.get_current_user)], 
-# ):
-#     logger.info(f"Endpoint '/users/me/bill_current/' called")
+@router.get("/users/all_bills/")
+async def get_bill_by_id():
+    logger.info(f"Endpoint '/users/all_bills/' called")
+    bill = user_service.get_all_bills()
     
-#     bills = user_service.get_user_bills(current_user)
-    
-#     return bills
-
+    return bill
 
 @router.get("/users/id/")
 async def read_users_me(

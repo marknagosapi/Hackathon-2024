@@ -67,6 +67,19 @@ class UserService:
 
         return user_id
 
+    def get_all_bills(self):
+        logger.info(f"{TAG} = get_user_bills() - called")
+        
+        db_bills = self.bill_repository.find_all()
+        bills = []
+
+        for db_bill in db_bills:
+            market_name = self.adminRepository.get_market_name(db_bill.admin_id)
+            bill_dict = self.create_bill_dict(db_bill)
+
+            bills.append(bill_dict)
+
+        return bills
 
     def get_user_bills(self, user: User):
         logger.info(f"{TAG} = get_user_bills() - called")
@@ -105,7 +118,7 @@ class UserService:
             "date": db_bill.date,
             "item_number": db_bill.item_number,
             "total": db_bill.total,
-            "items": [ItemSchema(name=item.name, quantity=item.quantity, unique_price=item.unique_price, total_price=item.total_price) for item in db_items]
+            "items": [ItemSchema(name=item.name, quantity=item.quantity, unique_price=item.unique_price, total_price=item.total_price).model_dump() for item in db_items]
         }
 
         return bill_dict 

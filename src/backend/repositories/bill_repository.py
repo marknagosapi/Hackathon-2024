@@ -17,6 +17,11 @@ class BillRepository:
         logger.info(f"{TAG} = find_bills() -  called")
         bills = self.db.query(Bill).filter(Bill.user_id == user_id).all()
         return bills
+    
+    def find_all(self):
+        logger.info(f"{TAG} = find_all() -  called")
+        bills = self.db.query(Bill).all()
+        return bills
 
     def find_bill_by_id(self, id:int):
         logger.info(f"{TAG} = find_bill_by_id() -  called")
