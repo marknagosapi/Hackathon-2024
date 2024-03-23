@@ -1,4 +1,4 @@
-﻿using EmptyBins.Pages;
+﻿using EmptyBins.View;
 
 
 namespace EmptyBins

@@ -2,7 +2,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace EmptyBins.Pages.UserPages;
+namespace EmptyBins.View.UserPages;
 
 public partial class UserHomeScreen : ContentPage, INotifyPropertyChanged
 {

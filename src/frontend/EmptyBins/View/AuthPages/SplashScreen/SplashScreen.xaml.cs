@@ -1,10 +1,10 @@
 using Microsoft.Maui.Controls;
 using System.Threading.Tasks;
 
-using EmptyBins.Pages.AuthPages;
+using EmptyBins.View.AuthPages;
 
 
-namespace EmptyBins.Pages
+namespace EmptyBins.View
 {
     public partial class SplashScreen : ContentPage
     {

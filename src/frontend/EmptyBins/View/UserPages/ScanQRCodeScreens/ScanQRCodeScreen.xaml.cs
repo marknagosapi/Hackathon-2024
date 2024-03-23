@@ -5,7 +5,7 @@ using Microsoft.Maui.ApplicationModel;
 using QRCoder;
  // Note: Usage might be restricted based on platform in .NET MAUI
 
-namespace EmptyBins.Pages.UserPages;
+namespace EmptyBins.View.UserPages;
 
 public partial class ScanQRCodeScreen : ContentPage
 {
