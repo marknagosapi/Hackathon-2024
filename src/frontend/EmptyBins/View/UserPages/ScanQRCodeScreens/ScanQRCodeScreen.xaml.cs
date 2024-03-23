@@ -12,7 +12,7 @@ public partial class ScanQRCodeScreen : ContentPage
     public ScanQRCodeScreen()
     {
         InitializeComponent();
-        GenerateAndDisplayQRCode("dummy email");
+        GenerateAndDisplayQRCode("1");
     }
 
     private void GenerateAndDisplayQRCode(string content)
