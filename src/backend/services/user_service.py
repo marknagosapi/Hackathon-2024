@@ -1,5 +1,6 @@
 from datetime import  datetime, timedelta
 import os
+import time
 from typing import Annotated
 from fastapi import Depends, HTTPException, status
 from jose import JWTError, jwt
@@ -9,7 +10,7 @@ from repositories.bill_repository import BillRepository
 from repositories.item_repository import ItemRepository
 from repositories.level_repository import LevelRepository
 from schemas.user_schema import  UserSchema
-from schemas.bill_schema import BillSchema
+from schemas.bill_schema import BillSchema,BillInDb
 from schemas.item_schema import ItemSchema
 from models.user import User
 from helper.user_utilities import get_password_hash,verify_password
@@ -52,6 +53,7 @@ class UserService:
             return False
         return user
 
+
     def get_user_id(self, email: str):
         logger.info(f"{TAG} = get_user_id() -  called")
 
@@ -59,29 +61,61 @@ class UserService:
 
         if not user_id:
             return False
+        
+
         return user_id
 
-    def get_user_bills(self,user:User, bill_id:int):
-        logger.info(f"{TAG} = get_user_bills() -  called")
-        user_id = self.get_user_id(user.email)
 
-        db_bill = db_bill = self.bill_repository.find_bill_by_id(bill_id)
+    def get_user_bills(self,user:User):
+        logger.info(f"{TAG} = get_user_bills() -  called")
+        db_bill = self.bill_repository.find_bills(user.id)
+
+        return db_bill
+
+    def create_bill_dict(self, db_bill):
         
+        if not db_bill:
+            return None
+
         db_items = self.item_repository.find_items_by_bill_id(db_bill.id)
 
-        bill_dict = BillSchema(
-            user_id=db_bill.user_id,
-            admin_id=db_bill.admin_id,
-            date=db_bill.date,
-            item_number=db_bill.item_number,
-            total=db_bill.total,
-            items=[ItemSchema(name=item.name, quantity=item.quantity, unique_price=item.unique_price, total_price=item.total_price) for item in db_items]
-        )
-        user_points = self.user_repository.add_points_for_user(int(bill_dict.total), user)
-        level_id = self.level_repository.get_level_by_points(user_points)
-        self.user_repository.update_level(level_id[0], user)
+        bill_dict = {
+            "user_id": db_bill.user_id,
+            "admin_id": db_bill.admin_id,
+            "date": db_bill.date,
+            "item_number": db_bill.item_number,
+            "total": db_bill.total,
+            "items": [ItemSchema(name=item.name, quantity=item.quantity, unique_price=item.unique_price, total_price=item.total_price) for item in db_items]
+        }
+
         return bill_dict
 
+
+
+    def get_user_bill_by_id(self,user:User, bill_id:int):
+        logger.info(f"{TAG} = get_user_bills() -  called")
+
+        db_bill = self.bill_repository.find_bill_by_id(bill_id)
+
+        bill_dict = self.create_bill_dict(db_bill)
+
+        return bill_dict
+
+
+    def get_current_bill(self, user:User):
+        logger.info(f"{TAG} = get_current_bill() -  called")
+
+        db_bill = self.bill_repository.find_current_bill(user.id)
+
+        if db_bill is None:
+            return None
+        bill_dict = self.create_bill_dict(db_bill)
+
+        user_points = self.user_repository.add_points_for_user(int(db_bill.total), user)
+        level_id = self.level_repository.get_level_by_points(user_points)
+        self.user_repository.update_level(level_id[0], user)
+
+        return bill_dict
 
 
 

@@ -1,5 +1,6 @@
 from datetime import  datetime, timedelta
 import os
+import random
 from typing import Annotated
 from fastapi import Depends, HTTPException, status
 from jose import JWTError, jwt
@@ -45,7 +46,8 @@ class AdminService:
             admin_id=admin_id
         )
 
-        items = generate_random_items(12)
+        item_nr = random.randint(5, 20)
+        items = generate_random_items(item_nr)
         bill.items = items
 
         item_number = len(items)
@@ -53,7 +55,7 @@ class AdminService:
         total_price = sum(item["total_price"] for item in items)
 
         bill.item_number = item_number
-        bill.total = total_price
+        bill.total = round(total_price,2)
 
         db_bill = self.bill_repository.create_bill(BillInDb(**bill.model_dump()))
         # [setattr(ItemInDb(**item), 'bill_id', db_bill.id) for item in items]

@@ -21,16 +21,43 @@ async def read_users_me(
 
     return current_user
 
+
 @router.get("/users/me/bills/")
 async def get_bills(current_user: Annotated[User, Depends(user_service.get_current_user)], 
-                    bill_id:int
 ):
-    logger.info(f"Endpoint '/users/me/bills/' called")
+    logger.info(f"Endpoint '/users/me/bill_by_id/' called")
     
-    bills = user_service.get_user_bills(current_user, bill_id)
+    bills = user_service.get_user_bills(current_user)
     
     return bills
 
+@router.get("/users/me/bill_by_id/")
+async def get_bill_by_id(current_user: Annotated[User, Depends(user_service.get_current_user)], 
+                    bill_id:int
+):
+    logger.info(f"Endpoint '/users/me/bill_by_id/' called")
+    
+    bills = user_service.get_user_bill_by_id(current_user, bill_id)
+    
+    return bills
+
+@router.get("/users/me/current_bill/")
+async def get_bill_by_id(current_user: Annotated[User, Depends(user_service.get_current_user)], 
+):
+    logger.info(f"Endpoint '/users/me/bill_current/' called")
+    bill = user_service.get_current_bill(current_user)
+    
+    return bill
+
+
+# @router.get("/users/me/bill_current/")
+# async def get_bills(current_user: Annotated[User, Depends(user_service.get_current_user)], 
+# ):
+#     logger.info(f"Endpoint '/users/me/bill_current/' called")
+    
+#     bills = user_service.get_user_bills(current_user)
+    
+#     return bills
 
 
 @router.get("/users/id/")
@@ -67,8 +94,8 @@ def delete_user_by_email(current_user: Annotated[User, Depends(user_service.get_
 
     return {"message":"Account deleted"}
 
-@router.post('/users/add_bill', status_code=status.HTTP_201_CREATED)
-def add_bill(bill: BillSchema):
-    logger.info(f"Endpoint '/users/add_bill/' called")
+# @router.post('/users/add_bill', status_code=status.HTTP_201_CREATED)
+# def add_bill(bill: BillSchema):
+#     logger.info(f"Endpoint '/users/add_bill/' called")
 
-    return {bill.user_id}
+#     return {bill.user_id}
