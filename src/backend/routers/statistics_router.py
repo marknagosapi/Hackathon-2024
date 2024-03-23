@@ -1,12 +1,7 @@
 from collections import defaultdict
-import json
-from typing import Annotated
-from fastapi import APIRouter, Depends, status
-from schemas.user_schema import User, UserSchema
+from fastapi import APIRouter
 from services.user_service import UserService
-from schemas.bill_schema import BillSchema
 import pandas as pd
-from datetime import datetime, timedelta
 from loguru import logger
 from collections import defaultdict
 import numpy as np
