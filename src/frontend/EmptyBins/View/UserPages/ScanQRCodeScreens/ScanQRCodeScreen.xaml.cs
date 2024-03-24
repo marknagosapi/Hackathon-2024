@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
+using EmptyBins.Models;
+using EmptyBins.Services;
 using Microsoft.Maui.ApplicationModel;
 using QRCoder;
  // Note: Usage might be restricted based on platform in .NET MAUI
@@ -9,10 +11,14 @@ namespace EmptyBins.View.UserPages;
 
 public partial class ScanQRCodeScreen : ContentPage
 {
+    private UserDataService userManager;
+    private UserData userData;
     public ScanQRCodeScreen()
     {
+        userManager = new UserDataService();
+     
         InitializeComponent();
-        GenerateAndDisplayQRCode("1");
+        GenerateAndDisplayQRCode(userData.level_id.ToString());
     }
 
     private void GenerateAndDisplayQRCode(string content)
@@ -24,6 +30,17 @@ public partial class ScanQRCodeScreen : ContentPage
             byte[] qrCodeBytes = qrCode.GetGraphic(20);
             DisplayQRCode(qrCodeBytes);
         }
+    }
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        await FetchUser();
+
+    }
+
+    private async Task FetchUser()
+    {
+        userData = await userManager.GetUserDataAsync();
     }
 
     private void DisplayQRCode(byte[] qrCodeBytes)

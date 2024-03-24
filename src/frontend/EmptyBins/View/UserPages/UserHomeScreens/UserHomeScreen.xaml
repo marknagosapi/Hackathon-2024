@@ -21,13 +21,7 @@
                 <BoxView HorizontalOptions="FillAndExpand" />
 
 
-                <Button Text="Log Out" 
-                    Clicked="OnLogOutClicked" 
-                    HorizontalOptions="End" 
-                    VerticalOptions="End"  
-                    BackgroundColor="Orange"
-                    HeightRequest="40"
-                    WidthRequest="100" />
+               
 
                 <!-- Új gombok a Statistics és Profile oldalakhoz, ikonokkal és színekkel -->
                 <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
@@ -53,6 +47,14 @@
                         </Frame.GestureRecognizers>
                     </Frame>
                 </HorizontalStackLayout>
+
+                <Button Text="Log Out" 
+                 Clicked="OnLogOutClicked" 
+                 HorizontalOptions="End" 
+                 VerticalOptions="End"  
+                 BackgroundColor="Orange"
+                 HeightRequest="40"
+                 WidthRequest="100" />
 
 
             </HorizontalStackLayout>
