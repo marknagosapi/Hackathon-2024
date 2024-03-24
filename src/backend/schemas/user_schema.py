@@ -2,6 +2,7 @@ from pydantic import BaseModel
 from datetime import date
 
 class User(BaseModel):
+    id:int | None = None
     first_name: str
     last_name: str
     email: str

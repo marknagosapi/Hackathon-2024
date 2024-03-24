@@ -11,7 +11,6 @@ from repositories.item_repository import ItemRepository
 from repositories.level_repository import LevelRepository
 from repositories.admin_repository import AdminRepository
 from schemas.user_schema import  UserSchema
-from schemas.bill_schema import BillSchema,BillInDb
 from schemas.item_schema import ItemSchema
 from models.user import User
 from helper.user_utilities import get_password_hash,verify_password
@@ -91,6 +90,7 @@ class UserService:
             market_name = self.adminRepository.get_market_name(db_bill.admin_id)
 
             bill_dict = {
+                "id":db_bill.id,
                 "user_id": db_bill.user_id,
                 "admin_id": db_bill.admin_id,
                 "market_name": market_name,
@@ -112,13 +112,14 @@ class UserService:
         market_name = self.adminRepository.get_market_name(db_bill.admin_id)
 
         bill_dict = {
+            "id":db_bill.id,
             "user_id": db_bill.user_id,
             "admin_id": db_bill.admin_id,
             "market_name": market_name,
             "date": db_bill.date,
             "item_number": db_bill.item_number,
             "total": db_bill.total,
-            "items": [ItemSchema(name=item.name, quantity=item.quantity, unique_price=item.unique_price, total_price=item.total_price).model_dump() for item in db_items]
+            "items": [ItemSchema(id = item.id, name=item.name, quantity=item.quantity, unique_price=item.unique_price, total_price=item.total_price).model_dump() for item in db_items]
         }
 
         return bill_dict 
