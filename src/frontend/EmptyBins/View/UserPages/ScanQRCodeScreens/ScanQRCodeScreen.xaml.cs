@@ -18,7 +18,7 @@ public partial class ScanQRCodeScreen : ContentPage
         userManager = new UserDataService();
      
         InitializeComponent();
-        GenerateAndDisplayQRCode(userData.level_id.ToString());
+      
     }
 
     private void GenerateAndDisplayQRCode(string content)
@@ -35,6 +35,7 @@ public partial class ScanQRCodeScreen : ContentPage
     {
         base.OnAppearing();
         await FetchUser();
+        GenerateAndDisplayQRCode(userData.id.ToString());
 
     }
 

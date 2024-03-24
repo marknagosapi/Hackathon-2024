@@ -10,6 +10,7 @@ public partial class StatScreen : ContentPage
 {
     private UserDataService _userDataService;
     private AdviceModel AdviceModel;
+    private UserData user;
     private PercentageModel p;
 
 
@@ -25,6 +26,7 @@ public partial class StatScreen : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
+        await getUser();
         await FetchAIAdvice();
         InitializeChart();
 
@@ -32,9 +34,13 @@ public partial class StatScreen : ContentPage
 
     private async Task FetchAIAdvice()
     {
-        // Call the GetUserBillsAsync method to fetch the bills
-        AdviceModel = await _userDataService.GetAIAdvice(1);
-        p = await _userDataService.GetPercentage(1);
+        AdviceModel = await _userDataService.GetAIAdvice(user.id);
+        p = await _userDataService.GetPercentage(user.id);
+    }
+
+    private async Task getUser()
+    {
+        user = await _userDataService.GetUserDataAsync();
     }
 
  

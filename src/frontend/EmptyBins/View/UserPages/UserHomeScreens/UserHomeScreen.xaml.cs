@@ -66,7 +66,7 @@ public partial class UserHomeScreen : ContentPage, INotifyPropertyChanged
             if (tappedBill != null)
             {
                 // Access the id of the tapped bill and do something with it
-                var billId = tappedBill.user_id;
+                var billId = tappedBill.id;
               
                 await Navigation.PushAsync(new BillDetailScreen(billId));
             }

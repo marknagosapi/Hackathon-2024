@@ -21,10 +21,13 @@
                 <BoxView HorizontalOptions="FillAndExpand" />
 
 
-               
+
 
                 <!-- Új gombok a Statistics és Profile oldalakhoz, ikonokkal és színekkel -->
-                <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+       
+                    <!-- Your items here -->
+
+                <HorizontalStackLayout HorizontalOptions="Center"  Margin="40,0,0,0" Spacing="20">
                     <!-- Statistics Button -->
                     <Frame BackgroundColor="LightSalmon" CornerRadius="10" WidthRequest="180" HeightRequest="60" HorizontalOptions="Center">
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
@@ -48,13 +51,17 @@
                     </Frame>
                 </HorizontalStackLayout>
 
-                <Button Text="Log Out" 
+
+                <StackLayout HorizontalOptions="End" >
+                    <Button Text="Log Out" 
                  Clicked="OnLogOutClicked" 
-                 HorizontalOptions="End" 
-                 VerticalOptions="End"  
+          
                  BackgroundColor="Orange"
                  HeightRequest="40"
-                 WidthRequest="100" />
+                 WidthRequest="100"
+                 Margin="200,0,0,0"
+                            />
+                </StackLayout>
 
 
             </HorizontalStackLayout>
