@@ -1,0 +1,9 @@
+﻿<!-- LightTheme.xaml -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+	<!-- Define your light theme resources here -->
+	<Color x:Key="BackgroundColor">#FFFFFF</Color>
+	<Color x:Key="TextColor">#000000</Color>
+	<!-- Add more resources as needed -->
+</ResourceDictionary>
+

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EmptyBins.View.UserPages.BillDetailScreen"
+             Title="BillDetailScreen">
+	<ScrollView>
+		<StackLayout>
+
+			<StackLayout Margin="10" Padding="10" >
+				<Label Text="Total Items: " FontSize="Medium" FontAttributes="Bold" TextColor="White" />
+				<Label x:Name="totalItemsText"  FontSize="Medium" TextColor="White" />
+				<Label Text="Total Amount: " FontSize="Medium" FontAttributes="Bold" TextColor="White"/>
+				<Label x:Name="totalPriceText" FontSize="Medium" TextColor="White" />
+			</StackLayout>
+
+			<CollectionView x:Name="ItemsCollectionView">
+				<CollectionView.ItemTemplate>
+					<DataTemplate>
+						<Frame Margin="40"  BackgroundColor="White" Padding="20">
+
+							<VerticalStackLayout>
+								<Label Text="{Binding name}" FontSize="Medium" FontAttributes="Bold" TextColor="#333333" />
+								<HorizontalStackLayout Spacing="100">
+									<VerticalStackLayout>
+										<Label Text="Quantity" FontSize="Small" FontAttributes="Bold" TextColor="#666666" />
+										<Label Text="{Binding quantity}" FontSize="Small" TextColor="#666666" />
+									</VerticalStackLayout>
+									<VerticalStackLayout>
+										<Label Text="Unique Price" FontSize="Small" FontAttributes="Bold" TextColor="#666666" />
+										<Label Text="{Binding unique_price}" FontSize="Small" TextColor="#666666" />
+									</VerticalStackLayout>
+									<VerticalStackLayout>
+										<Label Text="Total Price" FontSize="Small" FontAttributes="Bold" TextColor="#666666" />
+										<Label Text="{Binding total_price}" FontSize="Small" TextColor="#666666" />
+									</VerticalStackLayout>
+								</HorizontalStackLayout>
+							</VerticalStackLayout>
+
+						</Frame>
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
+			</CollectionView>
+
+			<!-- Other content can be added here -->
+		</StackLayout>
+	</ScrollView>
+</ContentPage>

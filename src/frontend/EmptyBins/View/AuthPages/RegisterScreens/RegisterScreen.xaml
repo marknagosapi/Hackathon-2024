@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EmptyBins.View.AuthPages.RegisterScreen"
+             >
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="20"
+            Padding="30"
+            VerticalOptions="Center">
+
+            <Label 
+                Text="Sign Up"
+                FontSize="24"
+                HorizontalOptions="Center" />
+
+            <Entry 
+                x:Name="firstnameEntry"
+                Placeholder="Firstname" />
+            <Entry 
+                x:Name="lastnameEntry"
+                Placeholder="Last Name" />
+
+            <Entry 
+                x:Name="emailEntry"
+                Placeholder="Email" />
+
+            <Entry 
+                x:Name="passwordEntry"
+                Placeholder="Password"
+                IsPassword="True" />
+
+
+            <Frame Padding="0" HorizontalOptions="Center" VerticalOptions="Start" CornerRadius="20" BorderColor="Black" WidthRequest="140" BackgroundColor="White">
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="userButton" Text="User" TextColor="Black" Clicked="UserButton_Clicked" BackgroundColor="Orange" CornerRadius="20" BorderWidth="0" HorizontalOptions="FillAndExpand"/>
+                    <Button x:Name="adminButton" Text="Admin" TextColor="Black" Clicked="AdminButton_Clicked" BackgroundColor="Transparent" CornerRadius="20" BorderWidth="0" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </Frame>
+
+            <Entry 
+                x:Name="marketNameEntry"
+                Placeholder="Market Name"
+                IsVisible="False" />
+
+
+            <Button 
+                x:Name="registerButton"
+                Text="Register"
+                Clicked="OnRegisterClicked" />
+
+            <Label 
+                Text="Already have an account? Login here"
+                HorizontalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnLoginLabelClicked"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

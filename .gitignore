@@ -588,3 +588,66 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+src/frontend/EmptyBins/bin/Debug/net8.0-windows10.0.19041.0/win10-x64/AppX/resources.pri
+        src/frontend/EmptyBins/bin/Debug/net8.0-windows10.0.19041.0/win10-x64/AppX/vs.appxrecipe
+        src/frontend/EmptyBins/bin/Debug/net8.0-windows10.0.19041.0/win10-x64/EmptyBins.build.appxrecipe
+        src/frontend/EmptyBins/bin/Debug/net8.0-windows10.0.19041.0/win10-x64/resources.pri
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/EmptyBins.AssemblyInfo.cs
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/EmptyBins.GeneratedMSBuildEditorConfig.editorconfig
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/R.txt
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/designtime/build.props
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/100.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/101.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/102.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/103.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/104.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/105.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/106.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/107.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/108.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/109.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/110.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/111.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/112.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/113.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/114.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/115.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/116.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/117.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/118.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/119.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/120.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/121.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/122.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/123.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/124.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/125.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/126.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/127.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/128.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/129.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/130.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/131.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/132.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/133.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/134.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/135.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/136.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/137.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/138.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/139.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/140.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/141.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/142.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/143.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/144.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/145.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/146.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/147.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/148.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/149.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/150.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/152.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/153.stamp
+        src/frontend/EmptyBins/obj/Debug/net8.0-android/lp/154.stam
