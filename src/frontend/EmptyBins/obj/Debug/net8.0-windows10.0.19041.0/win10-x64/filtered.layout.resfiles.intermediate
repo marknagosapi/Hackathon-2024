@@ -52,7 +52,10 @@ dotnet_bot.scale-125.png
 dotnet_bot.scale-150.png
 dotnet_bot.scale-200.png
 dotnet_bot.scale-400.png
-qr_icon.scale-100.png
+home_icon.scale-100.png
+profile_icon.scale-100.png
+qr_code.scale-100.png
+stats_icon.scale-100.png
 splashSplashScreen.scale-100.png
 splashSplashScreen.scale-125.png
 splashSplashScreen.scale-150.png

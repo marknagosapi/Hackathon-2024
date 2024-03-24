@@ -1,17 +1,24 @@
+
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
+using EmptyBins.Models;
+using EmptyBins.Services;
 using EmptyBins.View.AuthPages;
+using EmptyBins.View.UserPages;
 namespace EmptyBins.View.UserPages;
 
-
+[XamlCompilation(XamlCompilationOptions.Compile)]
 public partial class UserHomeScreen : ContentPage, INotifyPropertyChanged
-{
 
-    private string _username = "DummyUser";
+{
+    private UserDataService _userDataService;
+    private string _username = "";
     private int _score = 15125;
 
-    public ObservableCollection<Bill> Bills { get; set; }
+    public ObservableCollection<BillModel> Bills { get; set; }
+    public ICommand OnBillTappedCommand { get; private set; }
 
     public string Username
     {
@@ -27,21 +34,88 @@ public partial class UserHomeScreen : ContentPage, INotifyPropertyChanged
 
     public UserHomeScreen()
     {
+        _userDataService = new UserDataService();
         InitializeComponent();
-        Bills = new ObservableCollection<Bill>()
-            {
-                new Bill { MarketName = "Market A", TotalSum = "100.00", DateTime = "2023-03-22" },
-                new Bill { MarketName = "Market B", TotalSum = "1244.00", DateTime = "2023-03-2" },
-                new Bill { MarketName = "Market C", TotalSum = "1230.00", DateTime = "2023-02-12" },
-                new Bill { MarketName = "Market D", TotalSum = "10.00", DateTime = "2023-01-11" },
-                new Bill { MarketName = "Market E", TotalSum = "130.00", DateTime = "2023-01-4" },
-                // Add more dummy data here
 
-            };
+        Bills = new ObservableCollection<BillModel>();
+        // Initialize the command
+
+
+        // Set the BindingContext to this object
         this.BindingContext = this;
+
     }
 
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+
+        await FetchUserDataAsync();
+        await FetchAndPopulateBills();
+    }
+
+
     public event PropertyChangedEventHandler PropertyChanged;
+
+    private async void OnItemTapped(object sender, EventArgs e)
+    {
+        var tappedFrame = sender as Frame;
+        if (tappedFrame != null)
+        {
+            var tappedBill = tappedFrame.BindingContext as BillModel;
+            if (tappedBill != null)
+            {
+                // Access the id of the tapped bill and do something with it
+                var billId = tappedBill.user_id;
+              
+                await Navigation.PushAsync(new BillDetailScreen(billId));
+            }
+        }
+    }
+
+  
+
+
+    private async Task FetchAndPopulateBills()
+    {
+        // Call the GetUserBillsAsync method to fetch the bills
+        var userBills = await _userDataService.GetUserBillsAsync();
+
+        if (userBills != null)
+        {
+
+            Bills.Clear();
+
+            foreach (var bill in userBills)
+            {
+                Bills.Add(bill);
+            }
+        }
+    }
+
+    public async Task FetchUserDataAsync()
+    {
+        try
+        {
+            var userData = await _userDataService.GetUserDataAsync();
+
+            if (userData != null)
+            {
+
+                Username = userData.last_name + " " + userData.first_name;
+                Score = userData.points;
+
+            }
+            else
+            {
+                Username = "b";
+
+            }
+        }
+        catch (Exception ex)
+        {
+        }
+    }
 
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
     {
@@ -72,11 +146,10 @@ public partial class UserHomeScreen : ContentPage, INotifyPropertyChanged
         await Navigation.PushAsync(new LoginScreen());
     }
 
-    public class Bill
+    private async void OnStatisticsClicked(object sender, EventArgs e)
     {
-        public string MarketName { get; set; }
-        public string TotalSum { get; set; }
-        public string DateTime { get; set; }
+        // Navigálás a ScanQRCodeScreen-re
+        await Navigation.PushAsync(new StatScreen());
     }
-}
 
+}

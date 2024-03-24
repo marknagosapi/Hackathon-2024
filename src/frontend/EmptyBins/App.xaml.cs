@@ -11,7 +11,7 @@ namespace EmptyBins
             InitializeComponent();
 
             // Set the start page to LoginScreen wrapped in a NavigationPage for navigation support
-            MainPage = new NavigationPage(new AdminHomeScreen());
+            MainPage = new NavigationPage(new SplashScreen());
 
         }
     }

@@ -17,10 +17,10 @@
                     </Frame>
                 </VerticalStackLayout>
 
-               
+
                 <BoxView HorizontalOptions="FillAndExpand" />
 
-                
+
                 <Button Text="Log Out" 
                     Clicked="OnLogOutClicked" 
                     HorizontalOptions="End" 
@@ -28,7 +28,33 @@
                     BackgroundColor="Orange"
                     HeightRequest="40"
                     WidthRequest="100" />
-                    
+
+                <!-- Új gombok a Statistics és Profile oldalakhoz, ikonokkal és színekkel -->
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+                    <!-- Statistics Button -->
+                    <Frame BackgroundColor="LightSalmon" CornerRadius="10" WidthRequest="180" HeightRequest="60" HorizontalOptions="Center">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                            <Image Source="stats_icon.png" WidthRequest="28" HeightRequest="28"/>
+                            <Label Text="Statistics" TextColor="Black" VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnStatisticsClicked"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <!-- Profile Button -->
+                    <Frame BackgroundColor="LightBlue" CornerRadius="10" WidthRequest="180" HeightRequest="60" HorizontalOptions="Center">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                            <Image Source="profile_icon.png" WidthRequest="28" HeightRequest="28"/>
+                            <Label Text="Profile" TextColor="Black" VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </HorizontalStackLayout>
+
+
             </HorizontalStackLayout>
 
 
@@ -38,37 +64,45 @@
                     Clicked="OnScanQRCodeClicked" />
 
             <!-- Bills List -->
-            <Label Text="Previous bills:" FontAttributes="Bold" FontSize="Large"/>
+            <Label Text="Previous bills:" FontAttributes="Bold" FontSize="Large" />
             <CollectionView ItemsSource="{Binding Bills}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame CornerRadius="10" Padding="15" Margin="5" BackgroundColor="#F0F0F0">
-                            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnItemTapped"/>
+                            </Frame.GestureRecognizers>
+                            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="20">
+                             
                                 <!-- Icon -->
-                                <Image Source="bill_icon.png" WidthRequest="40" HeightRequest="40" Grid.Column="0"/>
+                                <Image Source="bill_icon.png" WidthRequest="40" HeightRequest="40" Grid.Column="0" />
                                 <!-- Market Name and Date -->
-                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="StartAndExpand">
-                                    <Label Text="{Binding MarketName, StringFormat='{0}'}" 
-                                           TextColor="Orange" 
-                                           FontSize="20"
-                                           FontAttributes="Bold"
-                                            
-                                    />
-                                    <Label Text="{Binding DateTime, StringFormat='Date: {0}'}" 
-                                            TextColor="DimGrey"
-                                            FontSize="14" />        
-                                </VerticalStackLayout>
+                                <StackLayout Grid.Column="1" HorizontalOptions="StartAndExpand">
+                                    <Label Text="{Binding market_name, StringFormat='{0}'}" 
+                               TextColor="Orange" 
+                               FontSize="20"
+                               FontAttributes="Bold" />
+                                    <Label Text="{Binding date, StringFormat='Date: {0}'}" 
+                               TextColor="DimGrey"
+                               FontSize="14" />
+                                </StackLayout>
                                 <!-- Total Sum on the right -->
-                                <Label Text="{Binding TotalSum, StringFormat='{0} lei'}"
-                                    TextColor="Black"
-                                    FontAttributes="Bold" 
-                                    FontSize="22"
-                                    Grid.Column="2" HorizontalOptions="End" VerticalOptions="Center"/>  
+                                <Label Text="{Binding total, StringFormat='{0} lei'}"
+                           TextColor="Black"
+                           FontAttributes="Bold" 
+                           FontSize="22"
+                           Grid.Column="2" HorizontalOptions="End" VerticalOptions="Center" >
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={x:Reference Name=BillListPage}, Path=BindingContext.NavigateToBillDetailCommand}" CommandParameter="{Binding id}" />
+                                    </Label.GestureRecognizers>
+
+                                </Label>
                             </Grid>
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+
 
         </VerticalStackLayout>
     </ScrollView>

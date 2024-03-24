@@ -2,6 +2,7 @@
 using ZXing;
 using Microsoft.Extensions.Logging;
 using ZXing.Net.Maui.Controls;
+using Microcharts.Maui;
 
 namespace EmptyBins
 {
@@ -14,6 +15,7 @@ namespace EmptyBins
                 .UseMauiApp<App>()
                 .UseMauiCameraView()
                 .UseBarcodeReader()
+                .UseMicrocharts()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
