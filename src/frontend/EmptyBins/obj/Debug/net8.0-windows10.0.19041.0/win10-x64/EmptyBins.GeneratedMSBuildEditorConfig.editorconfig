@@ -8,89 +8,89 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = EmptyBins
-build_property.ProjectDir = D:\Hackathon\Hackathon-2024\src\frontend\EmptyBins\
+build_property.ProjectDir = C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 
-[D:/Hackathon/Hackathon-2024/src/frontend/EmptyBins/App.xaml]
+[C:/Users/markp/Desktop/HACKATHON/Hackathon-2024/src/frontend/EmptyBins/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = EmptyBins.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[D:/Hackathon/Hackathon-2024/src/frontend/EmptyBins/AppShell.xaml]
+[C:/Users/markp/Desktop/HACKATHON/Hackathon-2024/src/frontend/EmptyBins/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = EmptyBins.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[D:/Hackathon/Hackathon-2024/src/frontend/EmptyBins/MainPage.xaml]
+[C:/Users/markp/Desktop/HACKATHON/Hackathon-2024/src/frontend/EmptyBins/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = EmptyBins.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[D:/Hackathon/Hackathon-2024/src/frontend/EmptyBins/Resources/Styles/Colors.xaml]
+[C:/Users/markp/Desktop/HACKATHON/Hackathon-2024/src/frontend/EmptyBins/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = EmptyBins.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[D:/Hackathon/Hackathon-2024/src/frontend/EmptyBins/Resources/Styles/Styles.xaml]
+[C:/Users/markp/Desktop/HACKATHON/Hackathon-2024/src/frontend/EmptyBins/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = EmptyBins.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
-[D:/Hackathon/Hackathon-2024/src/frontend/EmptyBins/View/AdminPages/AdminHomeScreens/AdminHomeScreen.xaml]
+[C:/Users/markp/Desktop/HACKATHON/Hackathon-2024/src/frontend/EmptyBins/View/AdminPages/AdminHomeScreens/AdminHomeScreen.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = EmptyBins.View.AdminPages.AdminHomeScreens.AdminHomeScreen.xaml
 build_metadata.AdditionalFiles.TargetPath = View\AdminPages\AdminHomeScreens\AdminHomeScreen.xaml
 build_metadata.AdditionalFiles.RelativePath = View\AdminPages\AdminHomeScreens\AdminHomeScreen.xaml
 
-[D:/Hackathon/Hackathon-2024/src/frontend/EmptyBins/View/AdminPages/CameraScreens/CameraScreens.xaml]
+[C:/Users/markp/Desktop/HACKATHON/Hackathon-2024/src/frontend/EmptyBins/View/AdminPages/CameraScreens/CameraScreens.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = EmptyBins.View.AdminPages.CameraScreens.CameraScreens.xaml
 build_metadata.AdditionalFiles.TargetPath = View\AdminPages\CameraScreens\CameraScreens.xaml
 build_metadata.AdditionalFiles.RelativePath = View\AdminPages\CameraScreens\CameraScreens.xaml
 
-[D:/Hackathon/Hackathon-2024/src/frontend/EmptyBins/View/AuthPages/LoginScreens/LoginScreen.xaml]
+[C:/Users/markp/Desktop/HACKATHON/Hackathon-2024/src/frontend/EmptyBins/View/AuthPages/LoginScreens/LoginScreen.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = EmptyBins.View.AuthPages.LoginScreens.LoginScreen.xaml
 build_metadata.AdditionalFiles.TargetPath = View\AuthPages\LoginScreens\LoginScreen.xaml
 build_metadata.AdditionalFiles.RelativePath = View\AuthPages\LoginScreens\LoginScreen.xaml
 
-[D:/Hackathon/Hackathon-2024/src/frontend/EmptyBins/View/AuthPages/RegisterScreens/RegisterScreen.xaml]
+[C:/Users/markp/Desktop/HACKATHON/Hackathon-2024/src/frontend/EmptyBins/View/AuthPages/RegisterScreens/RegisterScreen.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = EmptyBins.View.AuthPages.RegisterScreens.RegisterScreen.xaml
 build_metadata.AdditionalFiles.TargetPath = View\AuthPages\RegisterScreens\RegisterScreen.xaml
 build_metadata.AdditionalFiles.RelativePath = View\AuthPages\RegisterScreens\RegisterScreen.xaml
 
-[D:/Hackathon/Hackathon-2024/src/frontend/EmptyBins/View/AuthPages/SplashScreen/SplashScreen.xaml]
+[C:/Users/markp/Desktop/HACKATHON/Hackathon-2024/src/frontend/EmptyBins/View/AuthPages/SplashScreen/SplashScreen.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = EmptyBins.View.AuthPages.SplashScreen.SplashScreen.xaml
 build_metadata.AdditionalFiles.TargetPath = View\AuthPages\SplashScreen\SplashScreen.xaml
 build_metadata.AdditionalFiles.RelativePath = View\AuthPages\SplashScreen\SplashScreen.xaml
 
-[D:/Hackathon/Hackathon-2024/src/frontend/EmptyBins/View/UserPages/BillDetailScreen/BillDetailScreen.xaml]
+[C:/Users/markp/Desktop/HACKATHON/Hackathon-2024/src/frontend/EmptyBins/View/UserPages/BillDetailScreen/BillDetailScreen.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = EmptyBins.View.UserPages.BillDetailScreen.BillDetailScreen.xaml
 build_metadata.AdditionalFiles.TargetPath = View\UserPages\BillDetailScreen\BillDetailScreen.xaml
 build_metadata.AdditionalFiles.RelativePath = View\UserPages\BillDetailScreen\BillDetailScreen.xaml
 
-[D:/Hackathon/Hackathon-2024/src/frontend/EmptyBins/View/UserPages/ScanQRCodeScreens/ScanQRCodeScreen.xaml]
+[C:/Users/markp/Desktop/HACKATHON/Hackathon-2024/src/frontend/EmptyBins/View/UserPages/ScanQRCodeScreens/ScanQRCodeScreen.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = EmptyBins.View.UserPages.ScanQRCodeScreens.ScanQRCodeScreen.xaml
 build_metadata.AdditionalFiles.TargetPath = View\UserPages\ScanQRCodeScreens\ScanQRCodeScreen.xaml
 build_metadata.AdditionalFiles.RelativePath = View\UserPages\ScanQRCodeScreens\ScanQRCodeScreen.xaml
 
-[D:/Hackathon/Hackathon-2024/src/frontend/EmptyBins/View/UserPages/StatScreen/StatScreen.xaml]
+[C:/Users/markp/Desktop/HACKATHON/Hackathon-2024/src/frontend/EmptyBins/View/UserPages/StatScreen/StatScreen.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = EmptyBins.View.UserPages.StatScreen.StatScreen.xaml
 build_metadata.AdditionalFiles.TargetPath = View\UserPages\StatScreen\StatScreen.xaml
 build_metadata.AdditionalFiles.RelativePath = View\UserPages\StatScreen\StatScreen.xaml
 
-[D:/Hackathon/Hackathon-2024/src/frontend/EmptyBins/View/UserPages/UserHomeScreens/UserHomeScreen.xaml]
+[C:/Users/markp/Desktop/HACKATHON/Hackathon-2024/src/frontend/EmptyBins/View/UserPages/UserHomeScreens/UserHomeScreen.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = EmptyBins.View.UserPages.UserHomeScreens.UserHomeScreen.xaml
 build_metadata.AdditionalFiles.TargetPath = View\UserPages\UserHomeScreens\UserHomeScreen.xaml

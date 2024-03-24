@@ -9,11 +9,7 @@
         VerticalOptions="Center"
         HorizontalOptions="Center">
 
-        <Label 
-            Text="EmptyBins"
-            FontSize="32"
-            TextColor="Orange"
-            HorizontalOptions="Center" />
+        <Image Source="app_logo.png" HeightRequest="300" WidthRequest="300" />
 
     </VerticalStackLayout>
 </ContentPage>

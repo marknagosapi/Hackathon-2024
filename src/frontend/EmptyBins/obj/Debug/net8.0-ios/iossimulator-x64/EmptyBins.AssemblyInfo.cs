@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EmptyBins")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+72467bf1c0a616f0e7828adcb553de7ba4d0f538")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+3ef02619e7a9bdc377362147f0dead025d38ff82")]
 [assembly: System.Reflection.AssemblyProductAttribute("EmptyBins")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EmptyBins")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

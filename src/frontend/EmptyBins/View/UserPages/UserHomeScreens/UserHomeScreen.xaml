@@ -7,17 +7,23 @@
             <!-- User Profile Section -->
             <HorizontalStackLayout Spacing="10" HorizontalOptions="FillAndExpand">
                 <VerticalStackLayout Spacing="0" HorizontalOptions="Start">
-                    <Label Text="{Binding Username}" FontSize="Large" VerticalOptions="End"/>
-                    <Label Text="{Binding Score, StringFormat='Score: {0}'}" FontSize="Medium" VerticalOptions="Start"/>
+                    <HorizontalStackLayout>
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Username}" FontSize="Large" VerticalOptions="End"/>
+                            <Label Text="{Binding Score, StringFormat='Score: {0}'}" FontSize="Medium" VerticalOptions="Start"/>
+                        </VerticalStackLayout>
+                        <Image Source="tree1.png" WidthRequest="100" HeightRequest="150"></Image>
+                    </HorizontalStackLayout>
                     <Frame Padding="0" HasShadow="False" CornerRadius="10" HorizontalOptions="FillAndExpand">
                         <ProgressBar Progress="{Binding Score, Converter={StaticResource ScoreToProgressConverter}}"
                          ProgressColor="Purple"
                          VerticalOptions="Center"
                          HorizontalOptions="FillAndExpand" />
                     </Frame>
+                   
                 </VerticalStackLayout>
 
-
+                
                 <BoxView HorizontalOptions="FillAndExpand" />
 
 
@@ -73,7 +79,10 @@
                     Clicked="OnScanQRCodeClicked" />
 
             <!-- Bills List -->
-            <Label Text="Previous bills:" FontAttributes="Bold" FontSize="Large" />
+            <HorizontalStackLayout>
+                <Label Text="Previous bills:" FontAttributes="Bold" FontSize="Large" />
+            
+            </HorizontalStackLayout>
             <CollectionView ItemsSource="{Binding Bills}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>

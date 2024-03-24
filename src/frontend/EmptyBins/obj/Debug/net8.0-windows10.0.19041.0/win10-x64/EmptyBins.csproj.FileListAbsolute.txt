@@ -106,7 +106,6 @@ C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\obj\Debug
 C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Regular.ttf
 C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Semibold.ttf
 C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\bill_icon.scale-100.png
-C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\qr_icon.scale-100.png
 C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png
 C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png
 C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png
@@ -383,3 +382,17 @@ D:\Hackathon\Hackathon-2024\src\frontend\EmptyBins\obj\Debug\net8.0-windows10.0.
 D:\Hackathon\Hackathon-2024\src\frontend\EmptyBins\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\qualifiers.txt.intermediate
 D:\Hackathon\Hackathon-2024\src\frontend\EmptyBins\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 D:\Hackathon\Hackathon-2024\src\frontend\EmptyBins\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
+C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microcharts.Maui.dll
+C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\SkiaSharp.dll
+C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\SkiaSharp.Views.Maui.Controls.dll
+C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\SkiaSharp.Views.Maui.Core.dll
+C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\SkiaSharp.Views.Windows.dll
+C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\libSkiaSharp.dll
+C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\app_logo.scale-100.png
+C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\home_icon.scale-100.png
+C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\profile_icon.scale-100.png
+C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\qr_code.scale-100.png
+C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\stats_icon.scale-100.png
+C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\tree1.scale-100.png
+C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\tree2.scale-100.png
+C:\Users\markp\Desktop\HACKATHON\Hackathon-2024\src\frontend\EmptyBins\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\tree3.scale-100.png

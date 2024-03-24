@@ -1,5 +1,6 @@
 OpenSans-Regular.ttf
 OpenSans-Semibold.ttf
+app_logo.scale-100.png
 appicon.ico
 appiconLargeTile.scale-100.png
 appiconLargeTile.scale-125.png
@@ -56,6 +57,9 @@ home_icon.scale-100.png
 profile_icon.scale-100.png
 qr_code.scale-100.png
 stats_icon.scale-100.png
+tree1.scale-100.png
+tree2.scale-100.png
+tree3.scale-100.png
 splashSplashScreen.scale-100.png
 splashSplashScreen.scale-125.png
 splashSplashScreen.scale-150.png

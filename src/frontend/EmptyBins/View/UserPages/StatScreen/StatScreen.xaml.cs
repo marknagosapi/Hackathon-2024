@@ -47,22 +47,29 @@ public partial class StatScreen : ContentPage
     private void InitializeChart()
     {
         // Példa adatok
-        Console.Write(AdviceModel.ToString());
-        var entries = new List<ChartEntry>
-            {
-                new ChartEntry(AdviceModel.expense) { Label =GetMonthName(AdviceModel.month), ValueLabel = AdviceModel.expense.ToString(), Color = SKColor.Parse("#266489") },
-               
-            };
+        var entries = new List<ChartEntry>();
+        var percentageEntries = new List<ChartEntry>();
+        if (AdviceModel != null)
+        {
 
-        var percentageEntries = new List<ChartEntry>
-            {
-                new ChartEntry(p.comparison_for_user) { Label = "%", ValueLabel =p.comparison_for_user.ToString(), Color = SKColor.Parse("#266489") },
 
-            };
+            entries.Add(new ChartEntry(AdviceModel.expense) { Label = GetMonthName(AdviceModel.month), ValueLabel = AdviceModel.expense.ToString(), Color = SKColor.Parse("#266489") });
+
+            
+        }
+
+        if (p != null)
+        {
+
+
+            percentageEntries.Add(new ChartEntry(p.comparison_for_user) { Label = "%", ValueLabel = p.comparison_for_user.ToString(), Color = SKColor.Parse("#266489") });
+
+            
+        }
 
       
         // Diagram létrehozása és beállítása
-        var chart = new RadialGaugeChart{ Entries = entries };
+        var chart = new DonutChart{ Entries = entries };
         var chartPercentage = new PieChart { Entries = percentageEntries };
         this.chartView.Chart = chart;
         this.chartViewPercentage.Chart = chartPercentage;

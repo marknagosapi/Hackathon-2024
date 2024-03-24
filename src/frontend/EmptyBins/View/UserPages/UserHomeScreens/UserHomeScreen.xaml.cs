@@ -16,6 +16,7 @@ public partial class UserHomeScreen : ContentPage, INotifyPropertyChanged
     private UserDataService _userDataService;
     private string _username = "";
     private int _score = 15125;
+    private double _totalPrice = 0.0;
 
     public ObservableCollection<BillModel> Bills { get; set; }
     public ICommand OnBillTappedCommand { get; private set; }
@@ -30,6 +31,12 @@ public partial class UserHomeScreen : ContentPage, INotifyPropertyChanged
     {
         get => _score;
         set => SetProperty(ref _score, value);
+    }
+
+    public double TotalPrice
+    {
+        get => _totalPrice;
+        set => SetProperty(ref _totalPrice, value);
     }
 
     public UserHomeScreen()
@@ -88,8 +95,10 @@ public partial class UserHomeScreen : ContentPage, INotifyPropertyChanged
 
             foreach (var bill in userBills)
             {
+                _totalPrice += bill.total;
                 Bills.Add(bill);
             }
+            TotalPrice = _totalPrice;
         }
     }
 
